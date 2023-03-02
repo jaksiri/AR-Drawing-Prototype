@@ -10,6 +10,21 @@ public class PlacementController : MonoBehaviour
     [SerializeField]
     private GameObject placedPrefab;
 
+    private bool _drawing = false;
+
+    public bool drawing
+    {
+        get
+        {
+            return _drawing;
+        }
+
+        set
+        {
+            _drawing = value;
+        }
+    }
+
     public GameObject PlacedPrefab
     {
         get
@@ -56,7 +71,7 @@ public class PlacementController : MonoBehaviour
             return;
         }
 
-        if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+        if (!_drawing && arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             var hitPose = hits[0].pose;
             var x = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
