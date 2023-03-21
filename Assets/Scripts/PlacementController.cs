@@ -7,21 +7,22 @@ using UnityEngine.XR.ARFoundation;
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlacementController : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject placedPrefab;
 
-    private bool _drawing = false;
+    private bool _placed = false;
 
-    public bool drawing
+    public bool placed
     {
         get
         {
-            return _drawing;
+            return _placed;
         }
 
         set
         {
-            _drawing = value;
+            _placed = value;
         }
     }
 
@@ -44,17 +45,19 @@ public class PlacementController : MonoBehaviour
         arRaycastManager = GetComponent<ARRaycastManager>();
     }
 
-    bool TryGetTouchPosition(out Vector2 touchPosition)
+    public bool TryGetTouchPosition(out Vector2 touchPosition)
     {
         if (Input.touchCount > 0)
         {
             touchPosition = Input.GetTouch(0).position;
+            if (touchPosition.IsPointOverUIObject()) {
+                return false;
+            }
             return true;
         }
         touchPosition = default;
         return false;
     }
-
     public void ClearScene()
     {
         GameObject[] placedPrefabs = GameObject.FindGameObjectsWithTag("DrawnObject");
@@ -62,6 +65,7 @@ public class PlacementController : MonoBehaviour
         {
             GameObject.Destroy(item);
         }
+        placed = false;
     }
 
     void Update()
@@ -71,10 +75,11 @@ public class PlacementController : MonoBehaviour
             return;
         }
 
-        if (!_drawing && arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+        if (!_placed && arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             var hitPose = hits[0].pose;
             var x = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+            placed = true;
         }
 
     }

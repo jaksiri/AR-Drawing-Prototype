@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
+
 
 public class DrawLineManager : MonoBehaviour
 {
@@ -47,6 +49,7 @@ public class DrawLineManager : MonoBehaviour
         if (_drawing && !_prevDrawing)
         {
             GameObject go = new GameObject();
+            go.transform.position = _penTip.transform.position;
             go.tag = "DrawnObject";
             currLine = go.AddComponent<LineRenderer>();
             currLine.startWidth = _lineWidth;
