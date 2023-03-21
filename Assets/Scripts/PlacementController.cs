@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,24 +8,13 @@ using UnityEngine.XR.ARFoundation;
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlacementController : MonoBehaviour
 {
+    public static event Action OnObjectPlaced;
+    public static event Action OnClearedScene;
 
     [SerializeField]
     private GameObject placedPrefab;
 
     private bool _placed = false;
-
-    public bool placed
-    {
-        get
-        {
-            return _placed;
-        }
-
-        set
-        {
-            _placed = value;
-        }
-    }
 
     public GameObject PlacedPrefab
     {
@@ -50,7 +40,8 @@ public class PlacementController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             touchPosition = Input.GetTouch(0).position;
-            if (touchPosition.IsPointOverUIObject()) {
+            if (touchPosition.IsPointOverUIObject())
+            {
                 return false;
             }
             return true;
@@ -65,7 +56,9 @@ public class PlacementController : MonoBehaviour
         {
             GameObject.Destroy(item);
         }
-        placed = false;
+        //Triggering change for clear scene
+        _placed = false;
+        OnClearedScene?.Invoke();
     }
 
     void Update()
@@ -79,7 +72,10 @@ public class PlacementController : MonoBehaviour
         {
             var hitPose = hits[0].pose;
             var x = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-            placed = true;
+
+            //Triggering change for after object is placed
+            _placed = true;
+            OnObjectPlaced?.Invoke();
         }
 
     }

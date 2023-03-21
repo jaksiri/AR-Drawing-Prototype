@@ -17,3 +17,5 @@ public class PlacedObjectManager : MonoBehaviour
 
     }
 }
+
+//Implement rotating,scaling
