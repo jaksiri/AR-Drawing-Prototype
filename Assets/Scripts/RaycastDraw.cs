@@ -13,21 +13,12 @@ public class RaycastDraw : MonoBehaviour
     private GameObject drawingParent;
     private bool _drawingParentPlaced;
     private RaycastHit hit;
-    // private bool _prevDrawing = false;
-    // private int numClicks = 0;
-    // private float _lineWidth = 0.05f;
+    private string currentDrawMode;
 
     private void Awake()
     {
         placementController = GetComponent<PlacementController>();
         goList = new List<GameObject>();
-        PlacementController.OnObjectPlaced += ObjectPlaced;
-        PlacementController.OnClearedScene += SceneCleared;
-    }
-    private void OnDestroy()
-    {
-        PlacementController.OnObjectPlaced -= ObjectPlaced;
-        PlacementController.OnClearedScene -= SceneCleared;
     }
 
     void Update()
@@ -59,15 +50,21 @@ public class RaycastDraw : MonoBehaviour
         }
     }
 
-    private void ObjectPlaced()
+    public void ObjectPlaced()
     {
-        _drawingParentPlaced = true;
         drawingParent = GameObject.FindGameObjectWithTag("DrawingParent");
+        StartCoroutine(DrawingParentPlacedDelayed());
     }
 
-    private void SceneCleared()
+    public void SceneCleared()
     {
         _drawingParentPlaced = false;
         drawingParent = null;
+    }
+
+    IEnumerator DrawingParentPlacedDelayed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _drawingParentPlaced = true;
     }
 }

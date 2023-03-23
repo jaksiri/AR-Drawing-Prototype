@@ -6,38 +6,33 @@ using UnityEngine.XR.ARFoundation;
 
 
 [RequireComponent(typeof(ARRaycastManager))]
+[RequireComponent(typeof(ARPlaneManager))]
 public class PlacementController : MonoBehaviour
 {
-    public static event Action OnObjectPlaced;
-    public static event Action OnClearedScene;
+    [Header("Events")]
+    public GameEvent onObjectPlaced;
+    public GameEvent onSceneCleared;
 
+    [Header("Prefab")]
     [SerializeField]
     private GameObject placedPrefab;
 
     private bool _placed = false;
 
-    public GameObject PlacedPrefab
-    {
-        get
-        {
-            return placedPrefab;
-        }
-        set
-        {
-            placedPrefab = value;
-        }
-    }
-
     private ARRaycastManager arRaycastManager;
+    private ARPlaneManager aRPlaneManager;
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
+        aRPlaneManager = GetComponent<ARPlaneManager>();
+        arRaycastManager.SetTrackablesActive(true);
+        TogglePlaneActive();
     }
 
     public bool TryGetTouchPosition(out Vector2 touchPosition)
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount == 1)
         {
             touchPosition = Input.GetTouch(0).position;
             if (touchPosition.IsPointOverUIObject())
@@ -51,14 +46,16 @@ public class PlacementController : MonoBehaviour
     }
     public void ClearScene()
     {
-        GameObject[] placedPrefabs = GameObject.FindGameObjectsWithTag("DrawnObject");
+        GameObject[] placedPrefabs = GameObject.FindGameObjectsWithTag("DrawingParent");
         foreach (GameObject item in placedPrefabs)
         {
             GameObject.Destroy(item);
         }
         //Triggering change for clear scene
         _placed = false;
-        OnClearedScene?.Invoke();
+        onSceneCleared.Raise(this, null);
+        arRaycastManager.SetTrackablesActive(true);
+        TogglePlaneActive();
     }
 
     void Update()
@@ -75,8 +72,18 @@ public class PlacementController : MonoBehaviour
 
             //Triggering change for after object is placed
             _placed = true;
-            OnObjectPlaced?.Invoke();
+            onObjectPlaced.Raise(this, null);
+            arRaycastManager.SetTrackablesActive(false);
+            TogglePlaneActive();
         }
 
+    }
+
+    private void TogglePlaneActive()
+    {
+        foreach (var plane in aRPlaneManager.trackables)
+        {
+            plane.gameObject.SetActive(!_placed);
+        }
     }
 }
