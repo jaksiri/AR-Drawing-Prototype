@@ -13,7 +13,7 @@ public class TwoFingerRotate : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        rotationFactor = 0.1f;
+        rotationFactor = 0.02f;
     }
 
     // Update is called once per frame

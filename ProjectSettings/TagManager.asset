@@ -6,8 +6,7 @@ TagManager:
   tags:
   - DrawnObject
   - DrawingParent
-  - GuideOuter
-  - GuideInner
+  - Guide
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class PlacedObjectManager : MonoBehaviour
         layerIgnoreRaycast = LayerMask.NameToLayer("Ignore Raycast");
     }
 
-    private void OnEnable()
+    private void Start()
     {
         switch (GameManager.Instance.currentDrawingState)
         {
@@ -37,6 +37,50 @@ public class PlacedObjectManager : MonoBehaviour
             case DrawingState.Outer:
                 DrawOnOuterSurface();
                 break;
+        }
+    }
+
+    public void OnGameStateUpdated(Component comp, object data)
+    {
+        if (data is DrawingState)
+        {
+            switch (data)
+            {
+                case DrawingState.Inner:
+                    DrawOnInnerSurface();
+                    break;
+                case DrawingState.Outer:
+                    DrawOnOuterSurface();
+                    break;
+            }
+        }
+        if (data is GameState)
+        {
+            switch (data)
+            {
+                case GameState.Drawing:
+                    gameObject.layer = defaultLayer;
+                    break;
+                default:
+                    gameObject.layer = layerIgnoreRaycast;
+                    break;
+            }
+        }
+    }
+
+    public void OnShowPlanesChanged(Component comp, object data)
+    {
+        if (data is bool)
+        {
+            xPlaneFront.SetActive((bool)data);
+            yPlaneFront.SetActive((bool)data);
+            zPlaneFront.SetActive((bool)data);
+
+            xPlaneBack.SetActive((bool)data);
+            yPlaneBack.SetActive((bool)data);
+            zPlaneBack.SetActive((bool)data);
+
+            outerCube.SetActive((bool)data);
         }
     }
 

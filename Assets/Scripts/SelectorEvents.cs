@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class SelectorEvents : MonoBehaviour
 {
-    public GameEvent drawOnOuterSurface;
-    public GameEvent drawOnInnerSurface;
+    public GameEvent updateDrawState;
 
     public void OuterSelected()
     {
-        drawOnOuterSurface.Raise(this, DrawingState.Outer);
+        updateDrawState.Raise(this, DrawingState.Outer);
     }
     public void InnerSelected()
     {
-        drawOnInnerSurface.Raise(this, DrawingState.Inner);
+        updateDrawState.Raise(this, DrawingState.Inner);
     }
 
 }

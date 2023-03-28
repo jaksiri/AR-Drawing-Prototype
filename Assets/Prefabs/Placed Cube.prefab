@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5376954244011704651}
   - component: {fileID: 2200087783389331819}
   - component: {fileID: 4389517500074709323}
-  - component: {fileID: 4857554571924761}
+  - component: {fileID: 5898737717683265572}
   m_Layer: 0
   m_Name: Placed Cube
   m_TagString: Untagged
@@ -75,14 +75,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 0ca3a86be14934139812eb5b8cda330b, type: 2}
+  gameEvent: {fileID: 11400000, guid: 814ca98d74c72472d8178cafd8c6318f, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2200087783389331819}
         m_TargetAssemblyTypeName: PlacedObjectManager, Assembly-CSharp
-        m_MethodName: DrawOnInnerSurface
-        m_Mode: 1
+        m_MethodName: OnGameStateUpdated
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -91,7 +91,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4857554571924761
+--- !u!114 &5898737717683265572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,14 +103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 0493c771977bf4a9c8d2f4f7657c62a0, type: 2}
+  gameEvent: {fileID: 11400000, guid: 8ce8a325c109c4091867bf91f2b76a78, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2200087783389331819}
         m_TargetAssemblyTypeName: PlacedObjectManager, Assembly-CSharp
-        m_MethodName: DrawOnOuterSurface
-        m_Mode: 1
+        m_MethodName: OnShowPlanesChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8631108872174060981}
   m_Layer: 2
   m_Name: Plane X Back
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 7765563765313100781}
   m_Layer: 2
   m_Name: Plane Z Back
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 4889914973059132879}
   m_Layer: 2
   m_Name: Plane Y Front
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 5251751911115868542}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 8446136975010794289}
   m_Layer: 2
   m_Name: Plane Z Front
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 7881413747362483077}
   m_Layer: 2
   m_Name: Plane X Front
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 1340227851883883767}
   m_Layer: 2
   m_Name: Plane Y Back
-  m_TagString: Untagged
+  m_TagString: Guide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
