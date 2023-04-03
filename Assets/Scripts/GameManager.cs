@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     //References
     [Header("Text References")]
     public TMP_Text gameStateText;
-    public TMP_Text drawingStateText;
 
 
     private void Awake()
@@ -81,7 +80,6 @@ public class GameManager : MonoBehaviour
         if (data is DrawingState)
         {
             currentDrawingState = (DrawingState)data;
-            drawingStateText.text = currentDrawingState.ToString();
         }
     }
 
@@ -133,6 +131,11 @@ public enum PlacementState
 public enum CurrentShape
 {
     Cube, Rectangle, Cylinder, Cone, Pyramid, Sphere
+}
+
+public enum CurrentShapeDraw
+{
+    Cube, Cylinder, Cone, Pyramid
 }
 
 #endregion

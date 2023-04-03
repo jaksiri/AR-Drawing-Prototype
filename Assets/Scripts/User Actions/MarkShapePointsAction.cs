@@ -5,8 +5,8 @@ using UnityEngine;
 public class MarkShapePointsAction : UserAction
 {
     private CreatingShapesState creatingShapesState;
-    private Transform pointMarked;
-    public MarkShapePointsAction(Transform pointMarked, CreatingShapesState state)
+    private GameObject pointMarked;
+    public MarkShapePointsAction(GameObject pointMarked, CreatingShapesState state)
     {
         this.creatingShapesState = state;
         this.pointMarked = pointMarked;

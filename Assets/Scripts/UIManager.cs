@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     private bool showSetting = false;
     private bool showShapeDropdown = false;
+    private bool showShapeDrawDropdown = false;
     [Header("Events")]
     public GameEvent updateGameState;
     public GameEvent showPlanesEvent;
@@ -26,7 +27,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Shapes Creation UI")]
     public GameObject shapesCreationDoneButton;
-    public GameObject shapesHeightSlider;
+    public GameObject shapesActionButton;
+    public GameObject shapesSelectionButton;
+    public GameObject shapesDrawSelectionDropdown;
 
     [Header("Settings UI")]
     public Toggle ShowHideToggle;
@@ -46,6 +49,7 @@ public class UIManager : MonoBehaviour
         // Initial Setup
         settingMenu.SetActive(false);
         placedShapesDropdown.SetActive(false);
+        shapesDrawSelectionDropdown.SetActive(false);
 
         //Toggle
         ShowHideToggle.onValueChanged.AddListener(TogglePlaneGuide);
@@ -70,7 +74,8 @@ public class UIManager : MonoBehaviour
         {
             //Shape Creation
             shapesCreationDoneButton.SetActive((GameState)data == GameState.CreatingShape);
-            // shapesHeightSlider.SetActive((GameState)data == GameState.CreatingShape);
+            shapesActionButton.SetActive((GameState)data == GameState.CreatingShape);
+            shapesSelectionButton.SetActive((GameState)data == GameState.CreatingShape);
 
             //Drawing
             drawUISelector.SetActive((GameState)data == GameState.Drawing);
@@ -113,6 +118,12 @@ public class UIManager : MonoBehaviour
         placedShapesDropdown.SetActive(showShapeDropdown);
     }
 
+    public void ToggleShapeDrawDropdown()
+    {
+        showShapeDrawDropdown = !showShapeDrawDropdown;
+        shapesDrawSelectionDropdown.SetActive(showShapeDrawDropdown);
+    }
+
     public void TogglePlaneGuide(bool value)
     {
         Debug.Log("Toggle Event Raised: " + value);
@@ -128,6 +139,11 @@ public class UIManager : MonoBehaviour
     public void SwitchToShape()
     {
         updateGameState.Raise(this, GameState.PlacingShape);
+    }
+
+    public void SwitchToCreate()
+    {
+        updateGameState.Raise(this, GameState.CreatingShape);
     }
 
     public void SwitchToGuide()

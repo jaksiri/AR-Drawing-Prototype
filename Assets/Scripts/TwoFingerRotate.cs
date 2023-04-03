@@ -6,17 +6,8 @@ public class TwoFingerRotate : MonoBehaviour
 {
     private Vector2 startPos;
     private Vector2 direction;
+    private float rotationFactor = 0.1f;
 
-    [SerializeField]
-    private float rotationFactor;
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        rotationFactor = 0.02f;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount == 2)
