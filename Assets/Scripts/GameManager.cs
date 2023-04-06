@@ -45,9 +45,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // Set Initial Conditions
-        updateGameState.Raise(this, GameState.Home);
-        updateDrawState.Raise(this, DrawingState.Outer);
-        updateCurrentShape.Raise(this, CurrentShape.Cube);
+        StartCoroutine(DelayedEventsUpdate());
     }
 
     public void UpdateGameState(Component comp, object data)
@@ -107,6 +105,14 @@ public class GameManager : MonoBehaviour
         }
         actionList[actionList.Count - 1].UndoAction();
         actionList.RemoveAt(actionList.Count - 1);
+    }
+
+    private IEnumerator DelayedEventsUpdate()
+    {
+        yield return new WaitForSeconds(0.2f);
+        updateGameState.Raise(this, GameState.Home);
+        updateDrawState.Raise(this, DrawingState.Outer);
+        updateCurrentShape.Raise(this, CurrentShape.Cube);
     }
 }
 

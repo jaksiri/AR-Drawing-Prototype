@@ -20,7 +20,6 @@ public class UIManager : MonoBehaviour
     public GameObject drawGuidePlacementDoneButton;
     public GameObject drawUISelector;
     [Header("Shapes Placement UI")]
-    public GameObject shapeUISelector;
     public GameObject shapesDoneButton;
     public GameObject currentShapeButton;
     public GameObject placedShapesDropdown;
@@ -87,7 +86,6 @@ public class UIManager : MonoBehaviour
 
             //Placing Shape
             currentShapeButton.SetActive((GameState)data == GameState.PlacingShape);
-            shapeUISelector.SetActive((GameState)data == GameState.PlacingShape);
             shapesDoneButton.SetActive((GameState)data == GameState.PlacingShape);
 
             switch (data)

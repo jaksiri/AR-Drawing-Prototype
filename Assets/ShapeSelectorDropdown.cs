@@ -7,7 +7,8 @@ public class ShapeSelectorDropdown : MonoBehaviour
     public GameEvent changeCurrentShape;
     public GameEvent changeCurrentShapeDraw;
     private Vector3 initialPosition;
-    private void Awake()
+
+    private void Start()
     {
         changeCurrentShape.Raise(this, CurrentShape.Cube);
         changeCurrentShapeDraw.Raise(this, CurrentShapeDraw.Cube);
