@@ -27,13 +27,15 @@ public class CreatingShapesController : MonoBehaviour
     private GameObject secondPoint;
     private GameObject thirdPoint;
     private GameObject heightPoint;
-    private Vector3 heightPointInitialOffset = new Vector3(0.0f, 0.01f, 0.0f);
+    private Vector3 heightPointInitialOffset = new Vector3(0.0f, 0.002f, 0.0f);
     private Quaternion rotation;
+    private GameObject flatReferencePlane;
     private GameObject referencePlane;
     private GameObject referencePlane2;
     private GameObject referencePlane3;
     private GameObject referencePlane4;
     private CreatingShapesState creatingShapesState = CreatingShapesState.PlacingStart;
+    private GameObject prefabToBePlaced;
 
 
     //Line Stuff
@@ -42,7 +44,7 @@ public class CreatingShapesController : MonoBehaviour
     [Header("Prefabs to be placed")]
     public GameObject pointPrefab;
     public GameObject heightPlacementPlanePrefab;
-    private GameObject prefabToBePlaced;
+    public GameObject flatPlanePrefab;
     public GameObject cubePrefab;
     public GameObject cylinderPrefab;
     public GameObject pyramidPrefab;
@@ -77,12 +79,23 @@ public class CreatingShapesController : MonoBehaviour
         {
             return;
         }
-        aRRaycastManager.Raycast(midScreen, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
-        if (hits.Count > 0)
+        var ray = Camera.main.ScreenPointToRay(midScreen);
+        if (Physics.Raycast(ray, out hit))
         {
-            placementIndicatorMarker.transform.position = hits[0].pose.position;
-            placementIndicatorMarker.transform.rotation = hits[0].pose.rotation;
+            placementIndicatorMarker.transform.position = hit.point;
+            placementIndicatorMarker.transform.rotation = Quaternion.Euler(hit.normal.x, hit.normal.y, hit.normal.z);
         }
+        else
+        {
+            aRRaycastManager.Raycast(midScreen, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+            if (hits.Count > 0)
+            {
+                placementIndicatorMarker.transform.position = hits[0].pose.position;
+                placementIndicatorMarker.transform.rotation = hits[0].pose.rotation;
+            }
+        }
+
+
         if (creatingShapesState == CreatingShapesState.PlacingMiddle)
         {
             secondPoint.transform.position = placementIndicatorMarker.transform.position;
@@ -165,6 +178,9 @@ public class CreatingShapesController : MonoBehaviour
                     {
                         Destroy(currLine);
                         Destroy(firstPoint);
+                        Destroy(secondPoint);
+                        Destroy(thirdPoint);
+                        Destroy(heightPoint);
                     }
 
                     firstPoint = null;
@@ -197,6 +213,7 @@ public class CreatingShapesController : MonoBehaviour
                         Destroy(secondPoint);
                         Destroy(thirdPoint);
                         Destroy(heightPoint);
+                        Destroy(flatReferencePlane);
                     }
 
                     break;
@@ -213,6 +230,10 @@ public class CreatingShapesController : MonoBehaviour
             secondPoint = Instantiate(pointPrefab, placementIndicatorMarker.transform.position, placementIndicatorMarker.transform.rotation);
             thirdPoint = Instantiate(pointPrefab, placementIndicatorMarker.transform.position, placementIndicatorMarker.transform.rotation);
             heightPoint = Instantiate(pointPrefab, placementIndicatorMarker.transform.position, placementIndicatorMarker.transform.rotation);
+
+            //Plane for flat reference
+            flatReferencePlane = Instantiate(flatPlanePrefab, placementIndicatorMarker.transform.position, placementIndicatorMarker.transform.rotation);
+            flatReferencePlane.transform.SetParent(firstPoint.transform);
 
             //Line Drawing
             currLine = firstPoint.AddComponent<LineRenderer>();
@@ -242,6 +263,11 @@ public class CreatingShapesController : MonoBehaviour
             ConfigureText(ref distanceText2, ref dlr2);
             dlr2.SetLabelText("Width");
 
+            //Setting Text parent after the rotation
+            distanceText1.transform.SetParent(firstPoint.transform);
+            distanceText2.transform.SetParent(firstPoint.transform);
+
+
             //Clear Line
             Destroy(currLine);
 
@@ -251,6 +277,7 @@ public class CreatingShapesController : MonoBehaviour
         {
             ConfigureText(ref distanceText3, ref dlr3);
             dlr3.SetLabelText("Height");
+            distanceText3.transform.SetParent(firstPoint.transform);
 
             //Create plane for height raycasting
             referencePlane = Instantiate(heightPlacementPlanePrefab, thirdPoint.transform.position, rotation);
@@ -290,9 +317,9 @@ public class CreatingShapesController : MonoBehaviour
             placedCustomGameObject.transform.SetParent(parent.transform);
 
             //Parent the distance labels
-            distanceText1.transform.SetParent(parent.transform);
-            distanceText2.transform.SetParent(parent.transform);
-            distanceText3.transform.SetParent(parent.transform);
+            distanceText1.transform.SetParent(parent.transform, true);
+            distanceText2.transform.SetParent(parent.transform, true);
+            distanceText3.transform.SetParent(parent.transform, true);
 
             //User Action
             PlaceCustomShapeAction pcsa = new PlaceCustomShapeAction(placedCustomGameObject);

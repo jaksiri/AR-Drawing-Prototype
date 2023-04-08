@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class UIManager : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Settings UI")]
     public Toggle ShowHideToggle;
+
+    [Header("AR Session")]
+    public ARSession arSession;
 
     void Awake()
     {
@@ -124,7 +128,6 @@ public class UIManager : MonoBehaviour
 
     public void TogglePlaneGuide(bool value)
     {
-        Debug.Log("Toggle Event Raised: " + value);
         showPlanesEvent.Raise(this, value);
     }
     public void SwitctToDraw()
@@ -173,6 +176,7 @@ public class UIManager : MonoBehaviour
 
         var clearAction = new ClearSceneAction();
         clearAction.DoAction();
+        arSession.Reset();
 
         if (GameManager.Instance.currentGameState == GameState.Drawing)
         {
