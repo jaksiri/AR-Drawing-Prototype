@@ -169,7 +169,7 @@ public class UIManager : MonoBehaviour
 
     public void ClearScene()
     {
-        if (GameManager.Instance.drawingParent == null)
+        if (GameManager.Instance.drawingParent == null && GameObject.FindGameObjectsWithTag("PlacedObject").Length == 0)
         {
             return;
         }

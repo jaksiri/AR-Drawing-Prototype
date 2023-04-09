@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.Interaction.Toolkit.AR;
 using TMPro;
 
 [RequireComponent(typeof(ARRaycastManager))]
 public class CreatingShapesController : MonoBehaviour
 {
     private bool _activated = false;
-    private bool _placedParent = false;
-    private GameObject parent;
+    // private bool _placedParent = false;
+    // private GameObject parent;
     private Vector2 midScreen;
     private Vector3 midPoint;
     private ARRaycastManager aRRaycastManager;
@@ -87,7 +88,7 @@ public class CreatingShapesController : MonoBehaviour
         }
         else
         {
-            aRRaycastManager.Raycast(midScreen, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
+            aRRaycastManager.Raycast(midScreen, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon);
             if (hits.Count > 0)
             {
                 placementIndicatorMarker.transform.position = hits[0].pose.position;
@@ -189,17 +190,17 @@ public class CreatingShapesController : MonoBehaviour
                     heightPoint = null;
                     rotation = default;
 
-                    // Setting Parent
-                    if (GameManager.Instance.drawingParent == null)
-                    {
-                        _placedParent = false;
-                        parent = null;
-                    }
-                    else
-                    {
-                        _placedParent = true;
-                        parent = GameManager.Instance.drawingParent;
-                    }
+                    // // Setting Parent
+                    // if (GameManager.Instance.drawingParent == null)
+                    // {
+                    //     _placedParent = false;
+                    //     parent = null;
+                    // }
+                    // else
+                    // {
+                    //     _placedParent = true;
+                    //     parent = GameManager.Instance.drawingParent;
+                    // }
                     break;
                 default:
                     _activated = false;
@@ -303,23 +304,38 @@ public class CreatingShapesController : MonoBehaviour
         {
 
 
-            //Check if parent exists
-            if (!_placedParent)
-            {
-                parent = Instantiate(new GameObject(), midPoint, rotation);
-                parent.AddComponent<TwoFingerRotate>();
-                GameManager.Instance.drawingParent = parent;
-                _placedParent = true;
-            }
+            // //Check if parent exists
+            // if (!_placedParent)
+            // {
+            //     parent = Instantiate(new GameObject(), midPoint, rotation);
+            //     // parent.AddComponent<TwoFingerRotate>();
+            //     GameManager.Instance.drawingParent = parent;
+            //     _placedParent = true;
+            // }
 
             //Instantiating the object and setting parent
             GameObject placedCustomGameObject = Instantiate(previewOfGameObject, previewOfGameObject.transform.position, previewOfGameObject.transform.rotation);
-            placedCustomGameObject.transform.SetParent(parent.transform);
+
+            //Parent for adding the labels so that the scaling is 1 to 1
+            var customObjectParent = Instantiate(new GameObject("AR Interaction Parent"), placedCustomGameObject.transform.position, placedCustomGameObject.transform.rotation);
+            placedCustomGameObject.transform.SetParent(customObjectParent.transform);
+
+            //Add Selection, Translation, Rotation AR Interactable
+            var arSelectionInteractable = customObjectParent.AddComponent<ARSelectionInteractable>();
+            customObjectParent.AddComponent<ARTranslationInteractable>();
+            customObjectParent.AddComponent<ARRotationInteractable>();
+
+            //Setting Selection Visual
+            arSelectionInteractable.selectionVisualization = placedCustomGameObject.transform.Find("Selected Outline").gameObject;
 
             //Parent the distance labels
-            distanceText1.transform.SetParent(parent.transform, true);
-            distanceText2.transform.SetParent(parent.transform, true);
-            distanceText3.transform.SetParent(parent.transform, true);
+            distanceText1.transform.SetParent(customObjectParent.transform, true);
+            distanceText2.transform.SetParent(customObjectParent.transform, true);
+            distanceText3.transform.SetParent(customObjectParent.transform, true);
+
+            //Setting Anchor Parent
+            var anchorParent = Instantiate(new GameObject("Anchor Parent"), placedCustomGameObject.transform.position, placedCustomGameObject.transform.rotation);
+            customObjectParent.transform.SetParent(anchorParent.transform);
 
             //User Action
             PlaceCustomShapeAction pcsa = new PlaceCustomShapeAction(placedCustomGameObject);

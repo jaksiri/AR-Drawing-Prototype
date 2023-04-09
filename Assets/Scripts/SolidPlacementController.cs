@@ -161,7 +161,7 @@ public class SolidPlacementController : MonoBehaviour
             if (!_placedParent)
             {
                 parent = Instantiate(new GameObject(), hitPose.position, hitPose.rotation);
-                parent.AddComponent<TwoFingerRotate>();
+                // parent.AddComponent<TwoFingerRotate>();
                 GameManager.Instance.drawingParent = parent;
                 _placedParent = true;
             }
