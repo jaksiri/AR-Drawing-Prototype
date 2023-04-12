@@ -1902,8 +1902,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418307122}
-  - component: {fileID: 418307121}
   - component: {fileID: 418307120}
+  - component: {fileID: 418307121}
   - component: {fileID: 418307119}
   - component: {fileID: 418307118}
   m_Layer: 0
@@ -2017,7 +2017,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_XROrigin: {fileID: 0}
-  m_ARSessionOrigin: {fileID: 832620060}
+  m_ARSessionOrigin: {fileID: 0}
 --- !u!4 &418307122
 Transform:
   m_ObjectHideFlags: 0
@@ -3433,7 +3433,7 @@ GameObject:
   - component: {fileID: 713177600}
   - component: {fileID: 713177599}
   m_Layer: 5
-  m_Name: Current Shape Text
+  m_Name: Current Shape Draw Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3778,278 +3778,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!1 &832620058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 832620061}
-  - component: {fileID: 832620060}
-  - component: {fileID: 832620059}
-  - component: {fileID: 832620063}
-  - component: {fileID: 832620062}
-  - component: {fileID: 832620064}
-  - component: {fileID: 832620067}
-  - component: {fileID: 832620069}
-  - component: {fileID: 832620068}
-  - component: {fileID: 832620070}
-  - component: {fileID: 832620071}
-  m_Layer: 0
-  m_Name: AR Session Origin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &832620059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 8103394586295323849, guid: 56351f98d1f9848639ec9f7319722bae, type: 3}
-  m_DetectionMode: 1
---- !u!114 &832620060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 1332947410}
---- !u!4 &832620061
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1332947415}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &832620062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529f7d16533d542f9be940072c46c499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateGameState: {fileID: 11400000, guid: f815143caf1344fa28ba4c3522121774, type: 2}
-  placedPrefab: {fileID: 197842552290797410, guid: 5c38145e1a25246bea00bcb98768cb06, type: 3}
---- !u!114 &832620063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RaycastPrefab: {fileID: 0}
---- !u!114 &832620064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74356c5bf6bdf484797e33d5dc014144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawnPrefab: {fileID: 7363335314070940939, guid: cda0ef11d43a1415e91bbe2049635a1b, type: 3}
---- !u!114 &832620067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: f815143caf1344fa28ba4c3522121774, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 832620064}
-        m_TargetAssemblyTypeName: RaycastDraw, Assembly-CSharp
-        m_MethodName: OnGameStateUpdated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 832620062}
-        m_TargetAssemblyTypeName: PlacementController, Assembly-CSharp
-        m_MethodName: OnGameStateUpdated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 832620068}
-        m_TargetAssemblyTypeName: SolidPlacementController, Assembly-CSharp
-        m_MethodName: OnGameStateUpdated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 832620070}
-        m_TargetAssemblyTypeName: CreatingShapesController, Assembly-CSharp
-        m_MethodName: OnGameStateUpdated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &832620068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d276207c5379040a0967d0cd55c44efa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentShapeButtonText: {fileID: 550015415}
-  updateGameState: {fileID: 11400000, guid: f815143caf1344fa28ba4c3522121774, type: 2}
-  currentShapePrefab: {fileID: 0}
-  cubePrefab: {fileID: 7131880980679398591, guid: c481b855d80f24fb193a64b19499fb1c, type: 3}
-  rectanglePrefab: {fileID: 4951523834754225436, guid: 0261665587d524ae7ade1c4dd4f00606, type: 3}
-  cylinderPrefab: {fileID: 4917578512683294303, guid: aa79b24dcb6e748988d3973f65a876ae, type: 3}
-  pyramidPrefab: {fileID: 4230658156026388041, guid: f667cc8dcf2b440c1b640c86dbeae416, type: 3}
-  conePrefab: {fileID: 1287561069652769837, guid: 645ad990e573241ccb710826e85a8b64, type: 3}
-  spherePrefab: {fileID: 2177249454510114170, guid: 8eda7de65cf91491a8d83b236cabb465, type: 3}
---- !u!114 &832620069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 6f513d6fdc32e44b1a295d2138ee7ab6, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 832620068}
-        m_TargetAssemblyTypeName: SolidPlacementController, Assembly-CSharp
-        m_MethodName: OnShapeChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &832620070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e39edc81c57724516aa748c03c61cdd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentShapeDrawText: {fileID: 713177599}
-  placementIndicatorMarker: {fileID: 1405679081}
-  pointPrefab: {fileID: 7363335314070940939, guid: 558054fe6ae0b4befa5ad506a574f09a, type: 3}
-  heightPlacementPlanePrefab: {fileID: 2181073214913162830, guid: bcb5a92356f424511b971d01df7af424, type: 3}
-  flatPlanePrefab: {fileID: 9167460296219841626, guid: 78180df21b8cf415b8cda907383139c1, type: 3}
-  cubePrefab: {fileID: 364507156635155517, guid: 4ba0e33c80f6f450184bd4d4386f2b08, type: 3}
-  cylinderPrefab: {fileID: 364507156635155517, guid: 121af9d0c15844dbaa507a3b540ad10f, type: 3}
-  pyramidPrefab: {fileID: 364507156635155517, guid: 4c04d4eb968e14e228c8ff27752286c5, type: 3}
-  conePrefab: {fileID: 364507156635155517, guid: f238b9e2a49ec40059997bed2788e92d, type: 3}
-  distanceTextPrefab: {fileID: 3879780107209301503, guid: e5b33d2d3657e4f1f97abd3892016393, type: 3}
---- !u!114 &832620071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832620058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 550356374883148a4b5ae571fa1b683a, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 832620070}
-        m_TargetAssemblyTypeName: CreatingShapesController, Assembly-CSharp
-        m_MethodName: OnDrawCurrentShapeChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &863051820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +4654,282 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1107456551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1107456553}
+  - component: {fileID: 1107456552}
+  - component: {fileID: 1107456562}
+  - component: {fileID: 1107456561}
+  - component: {fileID: 1107456560}
+  - component: {fileID: 1107456559}
+  - component: {fileID: 1107456558}
+  - component: {fileID: 1107456557}
+  - component: {fileID: 1107456556}
+  - component: {fileID: 1107456555}
+  - component: {fileID: 1107456554}
+  m_Layer: 0
+  m_Name: AR Session Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1107456552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 1332947410}
+  m_OriginBaseGameObject: {fileID: 1107456551}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
+--- !u!4 &1107456553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1197.4905, y: 554.4594, z: 18.861681}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1332947415}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107456554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 550356374883148a4b5ae571fa1b683a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107456557}
+        m_TargetAssemblyTypeName: CreatingShapesController, Assembly-CSharp
+        m_MethodName: OnDrawCurrentShapeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1107456555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 6f513d6fdc32e44b1a295d2138ee7ab6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107456558}
+        m_TargetAssemblyTypeName: SolidPlacementController, Assembly-CSharp
+        m_MethodName: OnShapeChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1107456556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293909fd62df849ffb6ba443e0f4ea41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: f815143caf1344fa28ba4c3522121774, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107456560}
+        m_TargetAssemblyTypeName: GuidePlacementController, Assembly-CSharp
+        m_MethodName: OnGameStateUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1107456559}
+        m_TargetAssemblyTypeName: RaycastDraw, Assembly-CSharp
+        m_MethodName: OnGameStateUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1107456558}
+        m_TargetAssemblyTypeName: SolidPlacementController, Assembly-CSharp
+        m_MethodName: OnGameStateUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1107456557}
+        m_TargetAssemblyTypeName: CreatingShapesController, Assembly-CSharp
+        m_MethodName: OnGameStateUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1107456557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39edc81c57724516aa748c03c61cdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShapeDrawText: {fileID: 713177599}
+  placementIndicatorMarker: {fileID: 1405679081}
+  pointPrefab: {fileID: 7363335314070940939, guid: 558054fe6ae0b4befa5ad506a574f09a, type: 3}
+  heightPlacementPlanePrefab: {fileID: 2181073214913162830, guid: bcb5a92356f424511b971d01df7af424, type: 3}
+  flatPlanePrefab: {fileID: 9167460296219841626, guid: 78180df21b8cf415b8cda907383139c1, type: 3}
+  cubePrefab: {fileID: 364507156635155517, guid: 4ba0e33c80f6f450184bd4d4386f2b08, type: 3}
+  cylinderPrefab: {fileID: 364507156635155517, guid: 121af9d0c15844dbaa507a3b540ad10f, type: 3}
+  pyramidPrefab: {fileID: 364507156635155517, guid: 4c04d4eb968e14e228c8ff27752286c5, type: 3}
+  conePrefab: {fileID: 364507156635155517, guid: 4ba0e33c80f6f450184bd4d4386f2b08, type: 3}
+  distanceTextPrefab: {fileID: 3879780107209301503, guid: e5b33d2d3657e4f1f97abd3892016393, type: 3}
+--- !u!114 &1107456558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d276207c5379040a0967d0cd55c44efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShapeButtonText: {fileID: 550015415}
+  updateGameState: {fileID: 11400000, guid: f815143caf1344fa28ba4c3522121774, type: 2}
+  currentShapePrefab: {fileID: 0}
+  cubePrefab: {fileID: 7131880980679398591, guid: c481b855d80f24fb193a64b19499fb1c, type: 3}
+  rectanglePrefab: {fileID: 4951523834754225436, guid: 0261665587d524ae7ade1c4dd4f00606, type: 3}
+  cylinderPrefab: {fileID: 4917578512683294303, guid: aa79b24dcb6e748988d3973f65a876ae, type: 3}
+  pyramidPrefab: {fileID: 4230658156026388041, guid: f667cc8dcf2b440c1b640c86dbeae416, type: 3}
+  conePrefab: {fileID: 1287561069652769837, guid: 645ad990e573241ccb710826e85a8b64, type: 3}
+  spherePrefab: {fileID: 2177249454510114170, guid: 8eda7de65cf91491a8d83b236cabb465, type: 3}
+--- !u!114 &1107456559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74356c5bf6bdf484797e33d5dc014144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawnPrefab: {fileID: 7363335314070940939, guid: cda0ef11d43a1415e91bbe2049635a1b, type: 3}
+--- !u!114 &1107456560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529f7d16533d542f9be940072c46c499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateGameState: {fileID: 11400000, guid: f815143caf1344fa28ba4c3522121774, type: 2}
+  placedPrefab: {fileID: 197842552290797410, guid: 5c38145e1a25246bea00bcb98768cb06, type: 3}
+--- !u!114 &1107456561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 0}
+--- !u!114 &1107456562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107456551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlanePrefab: {fileID: 8103394586295323849, guid: 56351f98d1f9848639ec9f7319722bae, type: 3}
+  m_DetectionMode: 1
 --- !u!1 &1113471485
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,6 +5892,7 @@ MonoBehaviour:
   m_AutoFocus: 1
   m_LightEstimation: 0
   m_FacingDirection: 1
+  m_RenderMode: 0
 --- !u!114 &1332947413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,13 +5920,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332947409}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1197.4905, y: -554.4594, z: -18.861681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 989788017}
-  m_Father: {fileID: 832620061}
+  m_Father: {fileID: 1107456553}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1333022409
@@ -8464,7 +8469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 832620070}
+      - m_Target: {fileID: 1107456557}
         m_TargetAssemblyTypeName: CreatingShapesController, Assembly-CSharp
         m_MethodName: OnPressedMarked
         m_Mode: 1

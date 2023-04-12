@@ -10,7 +10,6 @@ public class RaycastDraw : MonoBehaviour
 
     [SerializeField]
     private GameObject drawnPrefab;
-    private GameObject drawingParent;
     private bool _allowDrawing;
 
     private RaycastHit hit;
@@ -30,12 +29,11 @@ public class RaycastDraw : MonoBehaviour
             switch (data)
             {
                 case GameState.Drawing:
-                    StartCoroutine(DrawingParentPlacedDelayed());
+                    StartCoroutine(AllowDrawingDelayed());
                     aRPlaneManager.SetTrackablesActive(false);
                     break;
                 default:
                     _allowDrawing = false;
-                    drawingParent = null;
                     break;
             }
         }
@@ -96,11 +94,6 @@ public class RaycastDraw : MonoBehaviour
 
     private void InstantiateGameObjectAtTouch(Vector2 touchPosition, DrawAction action)
     {
-        if (drawingParent == null)
-        {
-            return;
-        }
-
         var ray = Camera.main.ScreenPointToRay(touchPosition);
         if (Physics.Raycast(ray, out hit))
         {
@@ -108,17 +101,14 @@ public class RaycastDraw : MonoBehaviour
             go.transform.position = hit.point;
             go.tag = "DrawnObject";
             action.AddItemsToList(go);
-            go.transform.SetParent(drawingParent.transform, true);
+            go.transform.SetParent(hit.transform);
         }
 
     }
 
-    IEnumerator DrawingParentPlacedDelayed()
+    IEnumerator AllowDrawingDelayed()
     {
         yield return new WaitForSeconds(0.5f);
         _allowDrawing = true;
-        drawingParent = GameManager.Instance.drawingParent;
     }
 }
-
-//Todo: Fix raycast draw to allow for multiple parent placements

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4389517500074709323}
   - component: {fileID: 5898737717683265572}
   m_Layer: 0
-  m_Name: Placed Cube
+  m_Name: Placed Cube Reference Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

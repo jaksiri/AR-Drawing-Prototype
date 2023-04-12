@@ -12,4 +12,5 @@ EditorBuildSettings:
     AR Foundation RemoteARFoundationRemoteLoaderSettings: {fileID: 11400000, guid: 3a4269f14f0ef43fc8fc068435ed4d53, type: 2}
     AR Foundation RemoteARFoundationRemoteSessionRecordsData: {fileID: 11400000, guid: aba8c79bfea6d4707ae01e465bd14a92, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 5ab3151b8d99e43b4933434c4261d1cd, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 8f90409bea8a94bb397c2ac414cb5c42, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b299f90de952943db90976eb5bd1c2a8, type: 2}
