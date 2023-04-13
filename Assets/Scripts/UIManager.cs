@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [Header("Draw UI")]
     public GameObject drawGuidePlacementDoneButton;
     public GameObject drawUISelector;
+    public GameObject drawDoneButton;
     [Header("Shapes Placement UI")]
     public GameObject shapesDoneButton;
     public GameObject currentShapeButton;
@@ -82,6 +83,7 @@ public class UIManager : MonoBehaviour
 
             //Drawing
             drawUISelector.SetActive((GameState)data == GameState.Drawing);
+            drawDoneButton.SetActive((GameState)data == GameState.Drawing);
 
             //PlacingPlane
             drawGuidePlacementDoneButton.SetActive((GameState)data == GameState.PlacingPlane);

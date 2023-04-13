@@ -22,8 +22,7 @@ public class ClearSceneAction : UserAction
         placedObjects = GameObject.FindGameObjectsWithTag("PlacedObject");
         foreach (var item in placedObjects)
         {
-            Debug.Log(item.transform.root);
-            item.SetActive(false);
+            item.transform.root.gameObject.SetActive(false);
         }
 
         base.DoAction();
@@ -32,21 +31,23 @@ public class ClearSceneAction : UserAction
     public override void UndoAction()
     {
 
-        if (oldDrawingParent == null || placedObjects.Length == 0)
+        if (oldDrawingParent == null)
         {
             return;
+        }
+        else
+        {
+            oldDrawingParent.SetActive(true);
+            GameManager.Instance.drawingParent = oldDrawingParent;
         }
 
         if (placedObjects.Length != 0)
         {
             foreach (var item in placedObjects)
             {
-                item.SetActive(true);
+                item.transform.root.gameObject.SetActive(true);
             }
         }
-
-        oldDrawingParent.SetActive(true);
-        GameManager.Instance.drawingParent = oldDrawingParent;
 
         if (prevGameState == GameState.Drawing)
         {
