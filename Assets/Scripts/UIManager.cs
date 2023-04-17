@@ -167,6 +167,7 @@ public class UIManager : MonoBehaviour
     public void FinishCreatingShape()
     {
         updateGameState.Raise(this, GameState.Home);
+        
     }
 
     public void ClearScene()

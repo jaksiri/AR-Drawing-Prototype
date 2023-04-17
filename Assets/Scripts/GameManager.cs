@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
     [Header("Text References")]
     public TMP_Text gameStateText;
 
-
     private void Awake()
     {
         // Singleton Stuff

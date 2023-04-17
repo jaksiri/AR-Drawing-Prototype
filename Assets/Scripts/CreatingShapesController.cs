@@ -203,6 +203,9 @@ public class CreatingShapesController : MonoBehaviour
                     // }
                     break;
                 default:
+                    if (_activated) {
+                        aRPlaneManager.SetTrackablesActive(false);
+                    }
                     _activated = false;
                     placementIndicatorMarker.SetActive(false);
 
